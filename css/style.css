@@ -1,0 +1,41 @@
+.slider h3,
+.slider h5 {
+  text-shadow: -1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+/* .about h4 {
+  text-shadow: -1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+.clients h3 {
+  text-shadow: -1px 1px 3px rgb(255, 255, 255);
+}
+.services h3 {
+  text-shadow: -1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+.portfolio h3 {
+  text-shadow: -1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+.brand-logo a {
+  text-shadow: -1px 1px 3px rgba(0, 0, 0, 0.5);
+}*/
+
+.slider img {
+  max-width: 100%;
+  height: auto;
+  width: auto\9; /* ie8 */
+}
+.parallax-container {
+  height: 20%;
+}
+.parallax img {
+  /*filter: grayscale();*/
+  opacity: 0.4 !important;
+}
+.clients img {
+  max-width: 200%;
+  filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.5));
+}
+/*Semua <section yg ada di html akan dihilangkan jarak barisnya */
+section,
+footer {
+  padding: 20px 0;
+}

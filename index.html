@@ -38,11 +38,11 @@
                   </div>
 <!-- Responsif platform-->  
                   <ul class="sidenav" id="mobile-demo">  
-                    <li><a href="#about">About us</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#portfolio">Portofolio</a></li>
-                    <li><a href="#clients">Clients</a></li> 
-                    <li><a href="#contact">Contact Us</a></li>
+                    <li><a class="sidenav-close" href="#about">About us</a></li>
+                    <li><a class="sidenav-close" href="#services">Services</a></li>
+                    <li><a class="sidenav-close" href="#portfolio">Portofolio</a></li>
+                    <li><a class="sidenav-close" href="#clients">Clients</a></li> 
+                    <li><a class="sidenav-close" href="#contact">Contact Us</a></li>
                   </ul>
 <!--Photo atas Slider-->
   
@@ -227,15 +227,15 @@
      </div>
      
     <div class="col m7 s12"> 
-      <form>
+      <form name="Submit form to google sheets">
         <div class="card-panel">
           <h5 >Silahkan isi Form </h5> 
           <div class="input-field">
-            <input type="text" name="name" id="name" required class="validate">
+            <input type="text" name="nama" id="nama">
             <label for="name">Nama</label>
           </div>
           <div class="input-field">
-            <input type="email" name="email" id="email" class="validate">
+            <input type="email" name="email" id="email" class="validate" >
             <label for="email">Email</label>
           </div>
           <div class="input-field">
@@ -243,10 +243,14 @@
             <label for="phone">No.Tlp</label>
           </div>
           <div class="input-field">
-            <textarea name="message" id="message" class="materialize-textarea"> </textarea>
+            <textarea name="message" id="message" class="materialize-textarea" > </textarea>
             <label for="message">Pesan</label>
           </div>
-          <button type="submit" class="btn blue accent-1">Kirim</button>
+          <button class="btn waves-effect waves-light blue" type="submit" name="action" onClick="refreshPage()">Kirim
+            <i class="material-icons blue right">send</i>
+          </button>
+          
+          <!-- <button type="submit" class="btn blue accent-1" onclick="">Kirim</button>-->
         </div>
       </form>
     </div>  
@@ -287,9 +291,24 @@
           M.ScrollSpy.init(scroll,{
             scrollOffset: 50
           });
+          function refreshPage(){
+    window.location.reload();
+} 
+            </script> 
+    </div>  
 
-    </script> 
-    </div>               
+    <!-- Kirim KE GOOGLE SPREADSHEET-->
+    <script>
+      const scriptURL = 'https://script.google.com/macros/s/AKfycbxuBElYeubpsZ4rHMTTVTt368y2Kh7cmVSbam46Rgtniz3u3sBfWMkSQGdVwPDX8GY/exec'
+      const form = document.forms['Submit form to google sheets']
+    
+      form.addEventListener('submit', e => {
+        e.preventDefault()
+        fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+          .then(response => console.log('Success!', response))
+          .catch(error => console.error('Error!', error.message))
+      })
+    </script>             
     </body>
   </html>
         
